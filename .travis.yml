@@ -1,0 +1,6 @@
+language: c
+compiler:
+- clang
+- gcc
+script: /usr/local/bin/stmr -h
+install: make && sudo make install
