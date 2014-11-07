@@ -1,0 +1,14 @@
+{
+  "name": "stmr",
+  "version": "0.0.1",
+  "description": "The Porter Stemmer algorithm",
+  "license": "MIT",
+  "keywords": [
+    "martin",
+    "porter",
+    "stemmer",
+    "algorithm"
+  ],
+  "repo": "wooorm/stmr.c",
+  "install": "make install"
+}
