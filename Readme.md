@@ -2,7 +2,7 @@
 
 Martin Porter’s Stemming algorithm<sup>[1](http://tartarus.org/martin/PorterStemmer/)</sup>.
 
-In fact, this is just a refactored version of the [initial ANCI C implementation](http://tartarus.org/martin/PorterStemmer/c.txt), with a nice CLI
+In fact, this is just a refactored version of the [initial ANCI C implementation](http://tartarus.org/martin/PorterStemmer/c.txt), with a nice CLI.
 
 ## Installation
 
