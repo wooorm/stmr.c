@@ -1,4 +1,4 @@
-# stmr(1)
+# stmr(1) [![Build Status](https://img.shields.io/travis/wooorm/stmr.c.svg?style=flat)](https://travis-ci.org/wooorm/stmr.c)
 
 Martin Porter’s Stemming algorithm<sup>[1](http://tartarus.org/martin/PorterStemmer/)</sup>.
 
