@@ -2,5 +2,5 @@ language: c
 compiler:
 - clang
 - gcc
-script: /usr/local/bin/stmr -h
+script: make test
 install: make && sudo make install
