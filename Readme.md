@@ -34,7 +34,7 @@ $ clib install wooorm/stmr.c
   $ stmr in.txt > out.txt
 
   # stdin and stdout
-  $ echo "Internationalise" | ./stmr | cat
+  $ echo "Internationalise" | stmr
   # internationalis
 ```
 
