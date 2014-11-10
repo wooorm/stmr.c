@@ -1,5 +1,5 @@
 
-n.n.n / 2014-11-10
+0.1.1 / 2014-11-10
 ==================
 
  * Fix extraneous usage example in `--help`
