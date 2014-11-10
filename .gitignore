@@ -1,5 +1,7 @@
 *.DS_STORE
 *.o
 *.log
+*.gcov
 stmr
 test
+coverage
