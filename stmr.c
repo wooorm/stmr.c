@@ -157,7 +157,7 @@ vowelInStem() {
 
     index = k0 - 1;
 
-    while (++index < j) {
+    while (++index <= j) {
         if (!isConsonant(index)) {
             return TRUE;
         }
