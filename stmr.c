@@ -95,8 +95,7 @@ isConsonant(int index) {
  */
 
 static int
-getMeasure()
-{
+getMeasure() {
     int position;
     int index;
 
@@ -154,8 +153,7 @@ getMeasure()
  */
 
 static int
-vowelinstem()
-{
+vowelInStem() {
     int index;
 
     index = k0 - 1;
@@ -175,7 +173,7 @@ vowelinstem()
  */
 
 static int
-doubleComponent(int index) {
+doubleConsonant(int index) {
     if (index < k0 + 1) {
         return FALSE;
     }
@@ -230,7 +228,7 @@ cvc(int index) {
  */
 
 static int
-ends(char *value) {
+ends(const char *value) {
     int length;
 
     length = value[0];
@@ -262,7 +260,7 @@ ends(char *value) {
  */
 
 static void
-setTo(char *value) {
+setTo(const char *value) {
     int length;
 
     length = value[0];
@@ -277,7 +275,7 @@ setTo(char *value) {
  */
 
 static void
-replace(char *value) {
+replace(const char *value) {
     if (getMeasure() > 0) {
         setTo(value);
     }
@@ -308,8 +306,7 @@ replace(char *value) {
 */
 
 static void
-step1ab()
-{
+step1ab() {
     int character;
 
     if (b[k] == 's') {
@@ -328,7 +325,7 @@ step1ab()
         }
     } else if (
         (ends("\02" "ed") || ends("\03" "ing")) &&
-        vowelinstem()
+        vowelInStem()
     ) {
         k = j;
 
@@ -338,7 +335,7 @@ step1ab()
             setTo("\03" "ble");
         } else if (ends("\02" "iz")) {
             setTo("\03" "ize");
-        } else if (doubleComponent(k)) {
+        } else if (doubleConsonant(k)) {
             k--;
 
             character = b[k];
@@ -363,7 +360,7 @@ step1ab()
 
 static void
 step1c() {
-    if (ends("\01" "y") && vowelinstem()) {
+    if (ends("\01" "y") && vowelInStem()) {
         b[k] = 'i';
     }
 }
@@ -743,7 +740,7 @@ step5() {
         }
     }
 
-    if (b[k] == 'l' && doubleComponent(k) && getMeasure() > 1) {
+    if (b[k] == 'l' && doubleConsonant(k) && getMeasure() > 1) {
         k--;
     }
 }
@@ -764,14 +761,15 @@ step5() {
  * extern, and delete the remainder of this file.
  */
 
-int stem(char *p, int i, int j) {
+int
+stem(char *p, int index, int position) {
     /**
      * Copy the parameters into statics.
      */
 
     b = p;
-    k = j;
-    k0 = i;
+    k = position;
+    k0 = index;
 
     if (k <= k0 + 1) {
         return k; /*-DEPARTURE-*/
@@ -833,7 +831,7 @@ static int indexMax = INC;
  * Increase memory.
  */
 
-void
+static void
 increaseValue() {
     char *newValue;
     int index;
@@ -861,7 +859,7 @@ increaseValue() {
  */
 
 static void
-stemfile(FILE *buffer) {
+stemFile(FILE *buffer) {
     int character;
     int index;
 
@@ -954,7 +952,7 @@ main(int argc, char **argv) {
     value = (char *) malloc(indexMax + 1);
 
     if (argc < 2) {
-        stemfile(stdin);
+        stemFile(stdin);
     } else {
         index = 0;
 
@@ -971,7 +969,7 @@ main(int argc, char **argv) {
                 exit(EXIT_FAILURE);
             }
 
-            stemfile(input);
+            stemFile(input);
         }
     }
 

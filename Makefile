@@ -1,7 +1,10 @@
 PREFIX ?= /usr/local
 SRC = stmr.c
 OBJ = $(SRC:.c=.o)
-CFLAGS = -D_GNU_SOURCE -std=c99
+CFLAGS = -D_GNU_SOURCE -std=c99 -Wall -Wno-format-y2k -W -Wstrict-prototypes -Wmissing-prototypes \
+    -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch \
+    -Wshadow -Wcast-align -Wbad-function-cast -Wchar-subscripts -Winline \
+    -Wnested-externs -Wredundant-decls
 
 stmr: $(OBJ)
 	$(CC) $(OBJ) -o $@
