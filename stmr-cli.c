@@ -148,7 +148,7 @@ main(int argc, char **argv) {
             printf("%s", "  $ stmr in.txt > out.txt\n");
             printf("%s", "\n");
             printf("%s", "  # stdin and stdout\n");
-            printf("%s", "  $ echo \"Internationalise\" | ./stmr | cat\n");
+            printf("%s", "  $ echo \"Internationalise\" | stmr\n");
             printf("%s", "  # internationalis\n");
             printf("%s", "\n");
 
