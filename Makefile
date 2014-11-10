@@ -21,7 +21,8 @@ stmr: $(OBJ_CLI)
 	$(CC) $(OBJ_CLI) -o $@
 
 test: $(OBJ_TEST)
-	$(CC) $(OBJ_TEST) -o $@
+	$(CC) $(OBJ_TEST) -o $@ && \
+	./test
 
 coverage: $(OBJ_TEST)
 	gcc $(COVFLAGS) $(TEST) -o $@ && \
