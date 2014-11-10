@@ -7,7 +7,7 @@
 static int hasError = 0;
 
 static void
-assertStem(char *input, char *output) {
+assertStem(const char *input, const char *output) {
     char *value;
     char *result;
     char *fixture;
@@ -62,6 +62,15 @@ main() {
 
         assertStem(lineIn, lineOut);
     }
+
+    /**
+     * These two fixture are treated in `stmr.h`, but
+     * not covered by the fixtures provided Martin
+     * Porter.
+     */
+
+    assertStem("nationalization", "nation");
+    assertStem("nationalism", "nation");
 
     if (hasError == 1) {
         exit(EXIT_FAILURE);
