@@ -4,7 +4,9 @@
 
 #include "stmr.h"
 
-static int hasError = 0;
+static int assertionCount = 0;
+
+static int errorCount = 0;
 
 static void
 assertStem(const char *input, const char *output) {
@@ -19,7 +21,8 @@ assertStem(const char *input, const char *output) {
     result[stem(result, 0, strlen(result) - 1) + 1] = 0;
 
     if (strcmp(fixture, result)) {
-        hasError = 1;
+        errorCount++;
+
         fprintf(stderr, "\033[31m");
         fprintf(stderr,
             "  (✖) For `%s`. Expected `%s`, got `%s`",
@@ -28,6 +31,8 @@ assertStem(const char *input, const char *output) {
         fprintf(stderr, "\033[0m");
         fprintf(stderr, "\n");
     }
+
+    assertionCount++;
 
     free(value);
     free(fixture);
@@ -72,7 +77,20 @@ main() {
     assertStem("nationalization", "nation");
     assertStem("nationalism", "nation");
 
-    if (hasError == 1) {
+    if (errorCount != 0) {
+        printf("\033[31m");
+        printf(
+            "(✖) Failed on %d of %d assertions",
+            errorCount, assertionCount
+        );
+        printf("\033[0m");
+        printf("\n");
+
         exit(EXIT_FAILURE);
+    } else {
+        printf("\033[32m");
+        printf("(✓) Passed %d assertions without errors", assertionCount);
+        printf("\033[0m");
+        printf("\n");
     }
 }
