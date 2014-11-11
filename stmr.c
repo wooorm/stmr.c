@@ -172,7 +172,7 @@ vowelInStem() {
  */
 
 static int
-doubleConsonant(int index) {
+isDoubleConsonant(int index) {
     if (index < k0 + 1) {
         return FALSE;
     }
@@ -334,7 +334,7 @@ step1ab() {
             setTo("\03" "ble");
         } else if (ends("\02" "iz")) {
             setTo("\03" "ize");
-        } else if (doubleConsonant(k)) {
+        } else if (isDoubleConsonant(k)) {
             k--;
 
             character = b[k];
@@ -739,7 +739,7 @@ step5() {
         }
     }
 
-    if (b[k] == 'l' && doubleConsonant(k) && getMeasure() > 1) {
+    if (b[k] == 'l' && isDoubleConsonant(k) && getMeasure() > 1) {
         k--;
     }
 }
