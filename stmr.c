@@ -173,10 +173,6 @@ vowelInStem() {
 
 static int
 isDoubleConsonant(int index) {
-    if (index < k0 + 1) {
-        return FALSE;
-    }
-
     if (b[index] != b[index - 1]) {
         return FALSE;
     }
