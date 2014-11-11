@@ -24,8 +24,13 @@ $ clib install wooorm/stmr.c
 
     -h, --help           output usage information
     -v, --version        output version number
+    -e, --eval string    output stemmed word
 
   Usage:
+
+  # stem a word
+  $ stmr -e nationalism
+  # nation
 
   # print stems
   $ stmr in.txt

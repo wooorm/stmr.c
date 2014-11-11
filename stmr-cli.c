@@ -115,6 +115,19 @@ stemFile(FILE *file) {
     }
 }
 
+/**
+ *  Evaluate a word.
+ */
+
+static void
+evaluate(const char *input) {
+    value = strdup(input);
+
+    value[stem(value, 0, strlen(value) - 1) + 1] = 0;
+
+    printf("%s\n", value);
+}
+
 int
 main(int argc, char **argv) {
     char *arg;
@@ -138,8 +151,13 @@ main(int argc, char **argv) {
             printf("%s", "\n");
             printf("%s", "    -h, --help           output usage information\n");
             printf("%s", "    -v, --version        output version number\n");
+            printf("%s", "    -e, --eval string    output stemmed word\n");
             printf("%s", "\n");
             printf("%s", "  Usage:\n");
+            printf("%s", "\n");
+            printf("%s", "  # stem a word\n");
+            printf("%s", "  $ stmr -e nationalism\n");
+            printf("%s", "  # nation\n");
             printf("%s", "\n");
             printf("%s", "  # print stems\n");
             printf("%s", "  $ stmr in.txt\n");
@@ -154,6 +172,23 @@ main(int argc, char **argv) {
 
             return EXIT_SUCCESS;
         }
+    }
+
+    if (
+        argc > 1 &&
+        (!strcmp(arg, "-e") || !strcmp(arg, "--eval"))
+    ) {
+        arg = argv[2];
+
+        if (arg == NULL) {
+            fprintf(stderr, "stmr: -e requires an argument\n");
+
+            exit(EXIT_FAILURE);
+        }
+
+        evaluate(arg);
+
+        return EXIT_SUCCESS;
     }
 
     value = (char *) malloc(indexMax + 1);
