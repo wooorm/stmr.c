@@ -40,7 +40,7 @@ uninstall:
 	rm -f $(PREFIX)/bin/stmr
 
 run-test: stmr test
-	./test && sh ./test-cli.sh
+	./test && bash ./test-cli.sh
 
 clean:
 	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gcov

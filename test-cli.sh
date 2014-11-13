@@ -1,4 +1,5 @@
 #!/bin/sh
+#!/bin/bash
 
 typeset -i tests=0
 
