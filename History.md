@@ -1,5 +1,5 @@
 
-n.n.n / 2014-11-13
+0.2.0 / 2014-11-13
 ==================
 
  * Add coveralls badge to `Readme.md`
