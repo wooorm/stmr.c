@@ -30,6 +30,8 @@ assertStem(const char *input, const char *output) {
         );
         fprintf(stderr, "\033[0m");
         fprintf(stderr, "\n");
+    } else {
+        printf("\033[32m.\033[0m");
     }
 
     assertionCount++;
@@ -76,6 +78,8 @@ main() {
 
     assertStem("nationalization", "nation");
     assertStem("nationalism", "nation");
+
+    printf("\n");
 
     if (errorCount != 0) {
         printf("\033[31m");
