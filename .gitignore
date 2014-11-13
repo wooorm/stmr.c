@@ -2,6 +2,8 @@
 *.o
 *.log
 *.gcov
+*.gcda
+*.gcno
 stmr
 test
 coverage

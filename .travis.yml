@@ -4,3 +4,4 @@ compiler:
 - gcc
 script: make run-test
 install: make && sudo make install
+after_script: sudo pip install cpp-coveralls && make run-coverage && coveralls --exclude test.c

@@ -24,10 +24,7 @@ test: $(OBJ_TEST)
 	$(CC) $(OBJ_TEST) -o $@
 
 coverage: $(OBJ_TEST)
-	gcc $(COVFLAGS) $(TEST) -o $@ && \
-	./$@ && \
-	gcov stmr && \
-	rm -rf *.{gcda,gcno}
+	gcc $(COVFLAGS) $(TEST) -o $@
 
 .SUFFIXES: .c .o
 .c.o:
@@ -39,10 +36,13 @@ install: stmr
 uninstall:
 	rm -f $(PREFIX)/bin/stmr
 
+run-coverage: coverage
+	./coverage && gcov stmr
+
 run-test: stmr test
 	./test && bash ./test-cli.sh
 
 clean:
-	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gcov
+	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gc{ov,da,no}
 
-.PHONY: clean install uninstall
+.PHONY: clean run-coverage run-test install uninstall

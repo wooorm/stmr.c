@@ -91,10 +91,12 @@ main() {
         printf("\n");
 
         exit(EXIT_FAILURE);
-    } else {
-        printf("\033[32m");
-        printf("(✓) Passed %d assertions without errors", assertionCount);
-        printf("\033[0m");
-        printf("\n");
     }
+
+    printf("\033[32m");
+    printf("(✓) Passed %d assertions without errors", assertionCount);
+    printf("\033[0m");
+    printf("\n");
+
+    return 0;
 }
