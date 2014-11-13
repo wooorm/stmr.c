@@ -21,14 +21,13 @@ stmr: $(OBJ_CLI)
 	$(CC) $(OBJ_CLI) -o $@
 
 test: $(OBJ_TEST)
-	$(CC) $(OBJ_TEST) -o $@ && \
-	./test
+	$(CC) $(OBJ_TEST) -o $@
 
 coverage: $(OBJ_TEST)
 	gcc $(COVFLAGS) $(TEST) -o $@ && \
-		./$@ && \
-		gcov stmr && \
-		rm -rf *.{gcda,gcno}
+	./$@ && \
+	gcov stmr && \
+	rm -rf *.{gcda,gcno}
 
 .SUFFIXES: .c .o
 .c.o:
@@ -40,7 +39,10 @@ install: stmr
 uninstall:
 	rm -f $(PREFIX)/bin/stmr
 
+run-test: stmr test
+	./test && ./test-cli.sh
+
 clean:
-	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST)
+	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gcov
 
 .PHONY: clean install uninstall

@@ -2,5 +2,5 @@ language: c
 compiler:
 - clang
 - gcc
-script: make test
+script: make run-test
 install: make && sudo make install
