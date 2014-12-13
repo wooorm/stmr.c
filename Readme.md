@@ -11,7 +11,7 @@ CLib:
 $ clib install wooorm/stmr.c
 ```
 
-Ore clone the repo.
+Or clone the repo.
 
 ## Usage
 
