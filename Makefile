@@ -1,11 +1,4 @@
-PREFIX ?= /usr/local
-
-SRC = stmr.c
-CLI = stmr-cli.c $(SRC)
-TEST = test.c $(SRC)
-
-OBJ_SRC = $(SRC:.c=.o)
-OBJ_CLI = $(CLI:.c=.o)
+TEST = test.c stmr.c
 OBJ_TEST = $(TEST:.c=.o)
 
 CFLAGS = -D_GNU_SOURCE -std=c99
@@ -16,9 +9,6 @@ LFLAGS = -Wall -Wno-format-y2k -W -Wstrict-prototypes -Wmissing-prototypes \
     -Wnested-externs -Wredundant-decls
 
 COVFLAGS = -Wall -fprofile-arcs -ftest-coverage
-
-stmr: $(OBJ_CLI)
-	$(CC) $(OBJ_CLI) -o $@
 
 test: $(OBJ_TEST)
 	$(CC) $(OBJ_TEST) -o $@
@@ -33,10 +23,10 @@ coverage: $(OBJ_TEST)
 run-coverage: coverage
 	./coverage && gcov stmr
 
-run-test: stmr test
-	./test && bash ./test-cli.sh
+run-test: test
+	./test
 
 clean:
-	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gc{ov,da,no}
+	rm -f coverage test $(OBJ_TEST) *.gc{ov,da,no}
 
 .PHONY: clean run-coverage run-test
