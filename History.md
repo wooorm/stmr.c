@@ -1,4 +1,16 @@
 
+n.n.n / 2014-12-13
+==================
+
+ * Remove `install` from travis
+ * Update `Readme.md` for changes
+ * Remove cli-creation from `Makefile`
+ * Remove `make install`, `make uninstall`
+ * Remove `install`, add `src` to `package.json`
+ * Rename project from `stmr` to `stmr.c`
+ * Remove `stmr-cli.c`
+ * Remove `test-cli.sh`
+
 0.2.0 / 2014-11-13
 ==================
 
