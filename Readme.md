@@ -1,48 +1,39 @@
-# stmr(1) [![Build Status](https://img.shields.io/travis/wooorm/stmr.c.svg?style=flat)](https://travis-ci.org/wooorm/stmr.c) [![Coverage Status](https://img.shields.io/coveralls/wooorm/stmr.c.svg?style=flat)](https://coveralls.io/r/wooorm/stmr.c?branch=master)
+# stmr([3](http://en.wikipedia.org/wiki/Man_page#Manual_sections)) [![Build Status](https://img.shields.io/travis/wooorm/stmr.c.svg?style=flat)](https://travis-ci.org/wooorm/stmr.c) [![Coverage Status](https://img.shields.io/coveralls/wooorm/stmr.c.svg?style=flat)](https://coveralls.io/r/wooorm/stmr.c?branch=master)
 
-Martin Porter’s Stemming algorithm<sup>[1](http://tartarus.org/martin/PorterStemmer/)</sup>.
+Martin Porter’s Stemming algorithm<sup>[1](http://tartarus.org/martin/PorterStemmer/)</sup> as a C library. There’s also a CLI: [stmr(1)](https://github.com/wooorm/stmr).
 
-In fact, this is just a refactored version of the [initial ANCI C implementation](http://tartarus.org/martin/PorterStemmer/c.txt), with a nice CLI.
+In fact, this is just a refactored version of the [initial ANCI C implementation](http://tartarus.org/martin/PorterStemmer/c.txt).
 
 ## Installation
 
-```
-$ make install
-```
-
 CLib:
-```
+```sh
 $ clib install wooorm/stmr.c
 ```
 
+Ore clone the repo.
+
 ## Usage
 
-```
-  Usage: stmr [options] file
+### int stem(char *pointer, int start, int end);
 
-  Options:
+```c
+#include <stdio.h>
+#include <string.h>
+#include "stmr.h"
 
-    -h, --help           output usage information
-    -v, --version        output version number
-    -e, --eval string    output stemmed word
+int
+main(int argc, char **argv) {
+    char *word = argv[1];
 
-  Usage:
+    int end = stem(word, 0, strlen(word) - 1);
 
-  # stem a word
-  $ stmr -e nationalism
-  # nation
+    word[end + 1] = 0;
 
-  # print stems
-  $ stmr in.txt
-
-  # write stems to out.txt
-  $ stmr in.txt > out.txt
-
-  # stdin and stdout
-  $ echo "Internationalise" | stmr
-  # internationalis
+    printf("%s", word);
+}
 ```
 
 ## License
 
-MIT © Titus Wormer
+MIT © [Titus Wormer](http://wooorm.com)
