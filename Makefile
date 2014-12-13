@@ -30,12 +30,6 @@ coverage: $(OBJ_TEST)
 .c.o:
 	$(CC) $< $(CFLAGS) $(LFLAGS) -c -o $@
 
-install: stmr
-	cp -f stmr $(PREFIX)/bin/stmr
-
-uninstall:
-	rm -f $(PREFIX)/bin/stmr
-
 run-coverage: coverage
 	./coverage && gcov stmr
 
@@ -45,4 +39,4 @@ run-test: stmr test
 clean:
 	rm -f stmr coverage test $(OBJ_CLI) $(OBJ_TEST) *.gc{ov,da,no}
 
-.PHONY: clean run-coverage run-test install uninstall
+.PHONY: clean run-coverage run-test
