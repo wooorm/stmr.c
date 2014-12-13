@@ -10,5 +10,8 @@
     "algorithm"
   ],
   "repo": "wooorm/stmr.c",
-  "install": "make install"
+  "src": [
+    "stmr.h",
+    "stmr.c"
+  ]
 }
