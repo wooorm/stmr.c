@@ -1,6 +1,6 @@
 {
   "name": "stmr.c",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "The Porter Stemmer algorithm",
   "license": "MIT",
   "keywords": [
