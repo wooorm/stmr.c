@@ -4,9 +4,9 @@ OBJ_TEST = $(TEST:.c=.o)
 CFLAGS = -D_GNU_SOURCE -std=c99
 
 LFLAGS = -Wall -Wno-format-y2k -W -Wstrict-prototypes -Wmissing-prototypes \
-    -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch \
-    -Wshadow -Wcast-align -Wbad-function-cast -Wchar-subscripts -Winline \
-    -Wnested-externs -Wredundant-decls
+	-Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch \
+	-Wshadow -Wcast-align -Wbad-function-cast -Wchar-subscripts -Winline \
+	-Wnested-externs -Wredundant-decls
 
 COVFLAGS = -Wall -fprofile-arcs -ftest-coverage
 

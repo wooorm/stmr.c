@@ -15,7 +15,7 @@ Or clone the repo.
 
 ## Usage
 
-### int stem(char *pointer, int start, int end);
+### `int stem(char *pointer, int start, int end)`
 
 ```c
 #include <stdio.h>
@@ -24,13 +24,13 @@ Or clone the repo.
 
 int
 main(int argc, char **argv) {
-    char *word = argv[1];
+  char *word = argv[1];
 
-    int end = stem(word, 0, strlen(word) - 1);
+  int end = stem(word, 0, strlen(word) - 1);
 
-    word[end + 1] = 0;
+  word[end + 1] = 0;
 
-    printf("%s", word);
+  printf("%s", word);
 }
 ```
 
