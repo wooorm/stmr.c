@@ -1,14 +1,14 @@
-# stmr([3](http://en.wikipedia.org/wiki/Man_page#Manual_sections)) [![Build Status](https://img.shields.io/travis/wooorm/stmr.c.svg?style=flat)](https://travis-ci.org/wooorm/stmr.c) [![Coverage Status](https://img.shields.io/coveralls/wooorm/stmr.c.svg?style=flat)](https://coveralls.io/r/wooorm/stmr.c?branch=master)
+# stmr(3) [![Build Status][travis-badge]][travis] [![Coverage Status][coveralls-badge]][coveralls]
 
-Martin Porter’s Stemming algorithm<sup>[1](http://tartarus.org/martin/PorterStemmer/)</sup> as a C library. There’s also a CLI: [stmr(1)](https://github.com/wooorm/stmr).
-
-In fact, this is just a refactored version of the [initial ANCI C implementation](http://tartarus.org/martin/PorterStemmer/c.txt).
+Martin Porter’s [Stemming algorithm][algo] as a C library.
+There’s also a CLI: [stmr(1)][cli].
 
 ## Installation
 
-CLib:
-```sh
-$ clib install wooorm/stmr.c
+[clib][]:
+
+```bash
+clib install wooorm/stmr.c
 ```
 
 Or clone the repo.
@@ -34,6 +34,34 @@ main(int argc, char **argv) {
 }
 ```
 
+## Related
+
+*   [`stemmer`][lib] — Same algorithm in JavaScript
+*   [`stmr`][cli]
+    — CLI in C
+
 ## License
 
-MIT © [Titus Wormer](http://wooorm.com)
+[MIT][license] © [Titus Wormer][author]
+
+<!-- Definitions -->
+
+[travis-badge]: https://img.shields.io/travis/wooorm/stmr.c.svg
+
+[travis]: https://travis-ci.org/wooorm/stmr.c
+
+[coveralls-badge]: https://img.shields.io/coveralls/wooorm/stmr.c.svg
+
+[coveralls]: https://coveralls.io/r/wooorm/stmr.c?branch=master
+
+[license]: LICENSE
+
+[author]: http://wooorm.com
+
+[algo]: http://tartarus.org/martin/PorterStemmer/
+
+[cli]: https://github.com/wooorm/stmr
+
+[lib]: https://github.com/wooorm/stemmer
+
+[clib]: https://github.com/clibs/clib
