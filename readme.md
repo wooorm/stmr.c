@@ -62,6 +62,6 @@ main(int argc, char **argv) {
 
 [cli]: https://github.com/wooorm/stmr
 
-[lib]: https://github.com/wooorm/stemmer
+[lib]: https://github.com/words/stemmer
 
 [clib]: https://github.com/clibs/clib
