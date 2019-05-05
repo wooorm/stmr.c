@@ -54,7 +54,7 @@ main(int argc, char **argv) {
 
 [coveralls]: https://coveralls.io/r/wooorm/stmr.c?branch=master
 
-[license]: LICENSE
+[license]: license
 
 [author]: http://wooorm.com
 
