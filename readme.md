@@ -52,7 +52,7 @@ main(int argc, char **argv) {
 
 [coveralls-badge]: https://img.shields.io/coveralls/wooorm/stmr.c.svg
 
-[coveralls]: https://coveralls.io/r/wooorm/stmr.c?branch=master
+[coveralls]: https://coveralls.io/github/wooorm/stmr.c
 
 [license]: license
 
