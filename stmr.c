@@ -160,7 +160,7 @@ vowelInStem() {
 /* `TRUE` when `j` and `(j-1)` are the same consonant. */
 static int
 isDoubleConsonant(int index) {
-  if (b[index] != b[index - 1]) {
+  if (index <= 0 || b[index] != b[index - 1]) {
     return FALSE;
   }
 
